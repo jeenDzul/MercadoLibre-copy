@@ -1,0 +1,22 @@
+@import './colors';
+
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+  }
+  html, body {
+    min-height: 100vh;
+    background: $color-background;
+  }
+
+  @font-face {
+    font-family: 'Roboto';
+    src: url("../public/fonts/Roboto-Light.ttf") format('truetype');
+    font-display: swap;
+  }

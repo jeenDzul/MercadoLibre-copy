@@ -1,0 +1,15 @@
+@import '../../../../styles/_colors.scss';
+@import '../../../../styles/_mix.scss';
+
+
+.wrapperBreadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+
+    li:not(:last-child):after {
+        content: '>';
+        padding: 0 calculateRem(8);
+    }
+}
+

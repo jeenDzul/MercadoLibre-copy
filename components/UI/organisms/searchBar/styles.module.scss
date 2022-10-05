@@ -1,0 +1,40 @@
+@import '../../../../styles/_colors.scss';
+@import '../../../../styles/_mix.scss';
+@import '../../../../styles/_device_breackpoints.scss';
+
+.input {
+    color: $color-text-dark-gray;
+    width: 100%;
+    height: calculateRem(39);
+    font-size: calculateRem(18);
+    padding-left: calculateRem(10);
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-primary;
+    height: calculateRem(60);
+    width: 100%;
+}
+
+.containerInput {
+    display: flex;
+    width: 90%;
+}
+
+.containerIcon {
+    background-color: $color-background;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calculateRem(50);
+}
+
+.containerLogo {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-right: calculateRem(10);
+}

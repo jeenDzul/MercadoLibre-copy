@@ -1,0 +1,24 @@
+@import '../../../styles/_colors.scss';
+@import '../../../styles/_mix.scss';
+@import '../../../styles/_device_breackpoints.scss';
+
+
+.group {
+    height: 100%;
+    background-color: white;
+    border-radius: calculateRem(4);
+    padding: calculateRem(32);
+}
+
+
+.container {
+    max-width: $laptop;
+    margin: 0 auto;
+}
+
+
+.containerHeader {
+    margin-top: calculateRem(16);
+    margin-bottom: calculateRem(16);
+    margin-left: calculateRem(16);
+}

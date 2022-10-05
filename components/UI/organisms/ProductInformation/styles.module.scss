@@ -1,0 +1,76 @@
+@import '../../../../styles/_colors.scss';
+@import '../../../../styles/_mix.scss';
+@import '../../../../styles/_device_breackpoints.scss';
+
+
+.labelInformation {
+    font-size: calculateRem(14);
+    color: $color-text-dark-gray;
+}
+
+.labelProduct {
+    font-size: calculateRem(24);
+    color: $color-text-dark-gray;
+    margin-top: calculateRem(16);
+    margin-bottom: calculateRem(32);
+}
+
+.labelPrice {
+    display: flex;
+    font-size: calculateRem(46);
+    color: $color-text-dark-gray;
+}
+
+.labelTitle {
+    font-size: calculateRem(28);
+    color: $color-dark-gray;
+    margin-bottom: calculateRem(32);
+}
+
+.labelPriceMin {
+    font-size: calculateRem(18) !important;
+}
+
+.productDescription {
+    font-size: calculateRem(16);
+    color: $color-text-light-gray;
+}
+
+.descriptionContainer {
+    margin-top: calculateRem(32);
+    margin-bottom: calculateRem(32);
+    @media (min-width: $laptop) {
+        display: grid;
+        grid-template-columns: 1fr 0.5fr;
+    }
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+}
+
+
+.containerButton {
+    margin-top: calculateRem(32);
+    @media (min-width: $tablet) {
+        margin-right: calculateRem(32);
+    }
+}
+
+.containerDescription {
+    @media (min-width: $laptop) {
+        display: grid;
+        grid-template-columns: 1fr 0.5fr;
+    }
+}
+
+.containerImg {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    @media (min-width: $laptop) {
+        margin-right: calculateRem(16);
+    }
+}

@@ -1,0 +1,12 @@
+@import '../../../../styles/_colors.scss';
+@import '../../../../styles/_mix.scss';
+
+.listResults {
+    display: flex;
+    flex-direction: column;
+
+    div {
+        margin-top: calculateRem(16);
+        margin-bottom: calculateRem(16);
+    }
+}
