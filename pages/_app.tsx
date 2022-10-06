@@ -1,10 +1,10 @@
 import { Provider } from 'react-redux'
 
-import store from '../redux/store';
+import store from 'redux/store';
 import { Suspense } from 'react';
 import "../styles/_global.scss";
 import Head from 'next/head';
-import SEO from '../utilities/seo';
+import SEO from 'utilities/seo';
 
 function MyApp({ Component, pageProps }) {
   return (

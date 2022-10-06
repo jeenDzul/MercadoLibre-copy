@@ -1,6 +1,6 @@
 
 import { configureStore } from "@reduxjs/toolkit";
-import { ProductsInterface } from "../adapters";
+import { ProductsInterface } from "adapters";
 import { productsSlice } from "./states/products";
 
 export interface AppStoreInterface {

@@ -1,9 +1,9 @@
-import { loadAbort } from "../utilities/load-abort-axios.utility";
-import axios, { AxiosResponse } from 'axios';
-import products from "../mock/products";
-import { AxiosCall } from "../models/axios-call.model";
-import ItemsIProps from "../models/response/items.response.model";
-import product from "../mock/product";
+import { loadAbort } from "utilities/load-abort-axios.utility";
+import { AxiosResponse } from 'axios';
+import products from "mock/products";
+import { AxiosCall } from "models/axios-call.model";
+import ItemsIProps from "models/response/items.response.model";
+import product from "mock/product";
 
 
 export const fetchProducts = (query?: string): AxiosCall<ItemsIProps> => {

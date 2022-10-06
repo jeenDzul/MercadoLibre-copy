@@ -24,7 +24,7 @@ const ProductCard = ({
   onClick,
 }: ProductCardInterface) => {
   return (
-    <div className={styles.cardContainer} onClick={onClick}>
+    <div data-testid="card" className={styles.cardContainer} onClick={onClick}>
       <div className={styles.imageContainer}>
         <img
           className={styles.image}

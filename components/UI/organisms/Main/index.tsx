@@ -3,26 +3,26 @@ import React, { useEffect, useState } from 'react';
 import SearchBar from '../searchBar';
 
 interface HomeInterface {
-    searchvalue?: string;
+    searchValue?: string;
     children?: React.ReactNode;
 }
 
 const Main = ({
-    searchvalue = '',
+    searchValue = '',
     children,
 }: HomeInterface) => {
-    const [valueToSearch, setValueToSearch] = useState(searchvalue);
+    const [valueToSearch, setValueToSearch] = useState(searchValue);
     const route = useRouter();
 
     useEffect(() => {
-        if (!searchvalue) {
+        if (!searchValue) {
             return;
         }
-        setValueToSearch(searchvalue);
-    }, [searchvalue]);
+        setValueToSearch(searchValue);
+    }, [searchValue]);
 
     const onSubmit = () => {
-        if (searchvalue == valueToSearch) {
+        if (searchValue == valueToSearch) {
             return;
         }
         route.push(`/items?search=${valueToSearch}`);

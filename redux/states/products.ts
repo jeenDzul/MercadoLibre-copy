@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ProductsEntity } from "../../adapters";
+import { ProductsInterface } from "../../adapters";
 
 
 
-const ProductsEmptyState: ProductsEntity = {
-    products:[],
+const ProductsEmptyState: ProductsInterface = {
+    products: [],
     categories: []
 };
 
@@ -19,7 +19,7 @@ export const productsSlice = createSlice({
     }
 });
 
-export const {createListProduct, resetListProduct} = productsSlice.actions;
+export const { createListProduct, resetListProduct } = productsSlice.actions;
 
 export default productsSlice.reducer;
 

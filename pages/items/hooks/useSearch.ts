@@ -1,15 +1,15 @@
 import { useEffect, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import createProductsAdapter from '../../../adapters/fetch.product.adapter';
-import useLoadFetch from '../../../hooks/useLoadFetch';
-import { createListProduct } from '../../../redux/states/products';
-import { AppStore } from '../../../redux/store';
-import { fetchProducts } from '../../../services/public-service';
+import createProductsAdapter from 'adapters/fetch.product.adapter';
+import useLoadFetch from 'hooks/useLoadFetch';
+import { createListProduct } from 'redux/states/products';
+import { AppStoreInterface } from 'redux/store';
+import { fetchProducts } from 'services/public-service';
 
 
 const useSearch = (param) => {
     const { loading, callEndpoint } = useLoadFetch();
-    const productsState = useSelector((store: AppStore) => store.products);
+    const productsState = useSelector((store: AppStoreInterface) => store.products);
     const dispatch = useDispatch();
 
     const fetch = useCallback(async () => {

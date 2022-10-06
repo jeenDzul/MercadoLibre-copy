@@ -1,13 +1,14 @@
 import { AxiosResponse } from "axios";
-import ProductDetailIProps from "../models/entity/product.detail.entity.model";
-import ItemIProps from "../models/response/item.response.model";
+import ProductDetailIProps from "models/entity/product.detail.entity.model";
+import DataIProps from "models/response/item.response.model";
+import ItemIProps from "models/response/item.response.model";
 
 export interface ProductDetailInterface {
     product?: ProductDetailIProps,
     categories?: String[]
 }
 
-const createProductAdapter = (itemResponse: AxiosResponse<ItemIProps>): ProductDetailInterface => {
+const createProductAdapter = (itemResponse: AxiosResponse<DataIProps>): ProductDetailInterface => {
 
     const { item, categories = [] } = itemResponse.data;
 

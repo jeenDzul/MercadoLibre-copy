@@ -5,4 +5,7 @@ interface ItemIProps {
     categories: String[],
 }
 
+
+
+
 export default ItemIProps;
