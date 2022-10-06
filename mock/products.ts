@@ -1,41 +1,41 @@
-import ItemsIProps from "../models/response/items.response.model";
+import ItemsIProps from "models/response/items.response.model";
 
 const products: ItemsIProps = {
     items: [{
         id: 'ASDG',
-        title: 'TV Samsung',
+        title: 'Iphone 11',
         price: {
             amount: 200,
             decimal: null,
             currency: 'USD',
         },
         thumbnail: 'https://via.placeholder.com/150',
-        city_name: 'Petaling Jaya',
+        city_name: 'México',
         free_shipping: true,
     }, {
         id: '"SDSDF"',
-        title: 'Silla de ruedas',
+        title: 'Iphone XR',
         price: {
             amount: 500,
             decimal: 50,
             currency: 'USD',
         },
         thumbnail: 'https://via.placeholder.com/150',
-        city_name: 'Benito Juarez',
+        city_name: 'Merida',
         free_shipping: false,
     }, {
         id: 'ASDADA',
-        title: 'Muebles de cedro',
+        title: 'Iphone 6',
         price: {
             amount: 300,
             decimal: null,
             currency: 'USD',
         },
         thumbnail: 'https://via.placeholder.com/150',
-        city_name: 'Sandakan',
+        city_name: 'Cancún',
         free_shipping: true,
     }],
-    categories: ['TV', 'Silla de ruedas', 'Muebles de cedro'],
+    categories: ['Celulares', 'Apple', 'Iphone'],
 }
 
 

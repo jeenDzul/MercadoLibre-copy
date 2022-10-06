@@ -1,6 +1,6 @@
 import { AxiosResponse } from "axios";
-import ProductIProps from "../models/response/product.response.model";
-import ItemsIProps from "../models/response/items.response.model";
+import ProductIProps from "models/response/product.response.model";
+import ItemsIProps from "models/response/items.response.model";
 
 export interface ProductsInterface {
     products: ProductIProps[],

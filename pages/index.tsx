@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
-import Main from "../components/UI/organisms/Main";
+import Main from "components/UI/organisms/Main";
+
 
 interface QueryInterface {
   search?: string;

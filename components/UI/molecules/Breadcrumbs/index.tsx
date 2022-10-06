@@ -1,7 +1,11 @@
 import React from "react";
 import styles from "./styles.module.scss";
 
-const Breadcrumbs = ({ categories = [] }) => {
+interface BreadcrumbsInterface {
+    categories?: string[]
+}
+
+const Breadcrumbs = ({ categories = [] }: BreadcrumbsInterface) => {
 
     return (
         <ul className={styles.wrapperBreadcrumbs}>

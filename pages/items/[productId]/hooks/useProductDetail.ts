@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
-import createProductAdapter, { ProductDetailInterface } from "../../../../adapters/fetch.product.detail.adapter";
-import useLoadFetch from "../../../../hooks/useLoadFetch";
-import { fetchProductDetail } from "../../../../services/public-service";
+import createProductAdapter, { ProductDetailInterface } from "adapters/fetch.product.detail.adapter";
+import useLoadFetch from "hooks/useLoadFetch";
+import { fetchProductDetail } from "services/public-service";
 
 const useProductDetail = (productId) => {
 

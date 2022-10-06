@@ -6,12 +6,12 @@ import Button from "../../atoms/Button";
 import styles from './styles.module.scss';
 
 interface ProductInformationInterface {
-    product: ProductDetailEntity
+    product?: ProductDetailEntity
 }
 
 const ProductInformation = ({ product }: ProductInformationInterface) => {
     return (
-        <div>
+        <div data-testid="product-detail">
             <div className={styles.containerDescription}>
                 <div className={styles.containerImg}>
                     <img src={product?.image} />

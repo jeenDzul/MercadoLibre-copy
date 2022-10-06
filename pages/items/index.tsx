@@ -1,9 +1,9 @@
-import Breadcrumbs from "../../components/UI/molecules/Breadcrumbs";
-import Main from "../../components/UI/organisms/Main";
+import Breadcrumbs from "components/UI/molecules/Breadcrumbs";
+import Main from "components/UI/organisms/Main";
 import { useRouter } from "next/router";
 import useSearch from "./hooks/useSearch";
-import Template from "../../components/template/Template";
-import ListElements from "../../components/UI/molecules/ListElements";
+import Template from "components/template/Template";
+import ListElements from "components/UI/molecules/ListElements";
 
 interface QueryInterface {
     search?: string;
