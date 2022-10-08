@@ -10,6 +10,7 @@ module.exports = {
     "@storybook/preset-scss",
     
   ],
+  "staticDirs": ['../public'],
   "framework": "@storybook/react",
   "core": {
     "builder": "@storybook/builder-webpack5"
