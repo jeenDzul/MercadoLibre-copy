@@ -4,7 +4,7 @@ import ItemsIProps from "models/response/items.response.model";
 
 export interface ProductsInterface {
     products: ProductIProps[],
-    categories: String[]
+    categories: string[]
 }
 
 const createProductsAdapter = (itemsResponse: AxiosResponse<ItemsIProps>): ProductsInterface => {

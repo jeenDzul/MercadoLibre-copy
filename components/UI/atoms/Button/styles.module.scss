@@ -1,0 +1,64 @@
+@import '../../../../styles/_colors.scss';
+@import '../../../../styles/_mix.scss';
+
+
+@mixin button-color ($primaryColor, $secondaryColor) {
+    background: $primaryColor;
+    color: $secondaryColor;
+    transition: $secondaryColor 0.8s;
+    &:hover {
+        background: $primaryColor radial-gradient(circle, transparent 1%, $primaryColor 1%) center/15000%;
+    }
+    &:active {
+        background-color: $primaryColor;
+        background-size: 100%;
+        transition: $secondaryColor 0s;
+    }
+
+}
+
+
+.wrapButton {
+    width: 100%;
+    font-weight: bold;
+    height: calculateRem(60);
+    border-radius: calculateRem(4);
+    cursor: pointer;
+    background-position: center;
+    border-color: transparent;
+}
+
+
+.btnPrimary {
+    @include button-color($color-primary-button,$color-background);
+ }
+
+ .btnSecondary {
+    @include button-color(rgba(65,137,230,.15),$color-primary-button);
+ }
+
+ .btnDisabled {
+    @include button-color(rgba(0,0,0,.1),rgba(0,0,0,.25));
+    
+ }
+
+
+/*.wrapButton {
+    background: $color-primary-button;
+    width: 100%;
+    color: $color-background;
+    font-weight: bold;
+    height: calculateRem(60);
+    border-radius: calculateRem(4);
+    cursor: pointer;
+    transition: $color-background 0.8s;
+    background-position: center;
+    &:hover {
+        background: $color-primary-button radial-gradient(circle, transparent 1%, $color-primary-button-hover 1%) center/15000%;
+    }
+    &:active {
+        background-color: $color-primary-button-hover;
+        background-size: 100%;
+        transition: $color-background 0s;
+    }
+}*/

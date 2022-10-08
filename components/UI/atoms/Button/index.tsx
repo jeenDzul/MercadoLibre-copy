@@ -1,14 +1,42 @@
 import React from 'react';
-import styles from './button.module.scss';
+import styles from './styles.module.scss';
 
-interface ButtonInterface {
+
+
+type Color = 'default' | 'primary' | 'secondary';
+
+type ButtonProps = {
+  color?: Color,
+  disabled?: boolean,
+
   children?: React.ReactNode,
   onClick?: () => void,
 }
 
-const Button = (props: ButtonInterface) => {
-  return <button onClick={props.onClick} className={styles.wrapButton} >{props.children}</button>;
+
+const Button = (props: ButtonProps) => {
+
+  const color = {
+    'primary': styles.btnPrimary,
+    'secondary': styles.btnSecondary,
+  };
+
+  const typeColor = color[props.color] ?? styles.btnPrimary;
+
+  return (
+    <button
+      onClick={() => {
+        if (props.disabled) {
+          return;
+        }
+        return props.onClick();
+      }}
+      className={`${styles.wrapButton} ${typeColor} ${props.disabled && styles.btnDisabled} `}>
+      {props.children}
+    </button>
+  );
 }
+
 
 
 export default Button;
