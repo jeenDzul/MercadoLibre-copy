@@ -2,7 +2,7 @@ import ProductIProps from "./product.response.model";
 
 interface ItemsIProps {
     items: ProductIProps[],
-    categories: String[],
+    categories: string[],
 }
 
 export default ItemsIProps;
