@@ -12,17 +12,17 @@ const createProductAdapter = (itemResponse: AxiosResponse<DataIProps>): ProductD
 
 
     const product: ProductDetailEntityProps = {
-        cityName: item.city_name,
-        freeShipping: item.free_shipping,
-        id: item.id,
-        picture: item.picture,
-        priceAmount: item.price.amount,
-        priceCurrency: item.price.currency,
-        priceDecimals: item.price.decimal,
-        title: item.title,
-        condition: item.condition,
-        soldQuantity: item.sold_quantity,
-        description: item.description,
+        cityName: item?.city_name,
+        freeShipping: item?.free_shipping,
+        id: item?.id,
+        picture: item?.picture,
+        priceAmount: item?.price?.amount,
+        priceCurrency: item?.price?.currency,
+        priceDecimals: item?.price?.decimal,
+        title: item?.title,
+        condition: item?.condition,
+        soldQuantity: item?.sold_quantity,
+        description: item?.description,
     };
 
     return {

@@ -18,17 +18,17 @@ const ProductCard = ({
         <img
           className={styles.image}
           alt="product image"
-          title={product.title}
-          src={product.picture}
+          title={product?.title}
+          src={product?.picture}
         />
       </div>
       <div className={styles.container}>
         <div className={styles.priceContainer}>
           <span>$ </span>
-          <span>{`${product.priceAmount}${product?.priceDecimals != null ? `.${product.priceDecimals}` : ''}`}</span>
-          {product.freeShipping && (
+          <span>{`${product?.priceAmount}${product?.priceDecimals != null ? `.${product?.priceDecimals}` : ''}`}</span>
+          {product?.freeShipping && (
             <span className={styles.iconContainer}>
-              {product.freeShipping && (
+              {product?.freeShipping && (
                 <img
                   alt="shipping"
                   title="shipping"
@@ -43,10 +43,10 @@ const ProductCard = ({
             </span>
           )}
         </div>
-        <h2>{product.title}</h2>
+        <h2>{product?.title}</h2>
       </div>
       <div className={styles.aside}>
-        <span>{product.cityName}</span>
+        <span>{product?.cityName}</span>
       </div>
     </div>
   );

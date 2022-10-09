@@ -32,7 +32,7 @@ describe('Product view information', () => {
         const data = createProductAdapter({ data: product } as AxiosResponse);
         const controller = render(<ProductInformation {...data} />);
         const img = controller.container.querySelector('img');
-        expect(img).toHaveAttribute('src', data.product.image);
+        expect(img).toHaveAttribute('src', data.product.picture);
     })
 });
 

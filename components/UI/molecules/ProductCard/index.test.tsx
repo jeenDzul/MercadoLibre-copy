@@ -16,22 +16,24 @@ describe('Product Card information', () => {
 
 
     it('should render a card component with information', () => {
-        const { getByTestId } = render(<ProductCard {...product.item} />);
+        const data = createProductAdapter({ data: product } as AxiosResponse);
+        const { getByTestId } = render(<ProductCard product={data.product} />);
         const card = getByTestId('card');
         expect(card).toBeInTheDocument();
     });
 
 
     it('should render card component with title information', () => {
-        const { getByText } = render(<ProductCard {...product.item} />);
+        const data = createProductAdapter({ data: product } as AxiosResponse);
+        const { getByText } = render(<ProductCard product={data.product} />);
         getByText(product.item.title);
     });
 
     it('should render card component with product image', () => {
         const data = createProductAdapter({ data: product } as AxiosResponse);
-        const controller = render(<ProductCard picture={data.product.image} />);
+        const controller = render(<ProductCard product={data.product} />);
         const img = controller.container.querySelector('img');
-        expect(img).toHaveAttribute('src', data.product.image);
+        expect(img).toHaveAttribute('src', data.product.picture);
     })
 });
 

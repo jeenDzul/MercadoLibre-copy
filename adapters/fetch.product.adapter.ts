@@ -13,15 +13,15 @@ const createProductsAdapter = (itemsResponse: AxiosResponse<ItemsIProps>): Produ
     const { items = [], categories = [] } = itemsResponse.data;
 
     const products: ProductEntityProps[] = items.map((item) => ({
-        cityName: item.city_name,
-        condition: item.condition,
-        freeShipping: item.free_shipping,
-        id: item.id,
-        picture: item.picture,
-        priceAmount: item.price.amount,
-        priceCurrency: item.price.currency,
-        priceDecimals: item.price.decimal,
-        title: item.title,
+        cityName: item?.city_name,
+        condition: item?.condition,
+        freeShipping: item?.free_shipping,
+        id: item?.id,
+        picture: item?.picture,
+        priceAmount: item?.price?.amount,
+        priceCurrency: item?.price?.currency,
+        priceDecimals: item?.price?.decimal,
+        title: item?.title,
     }));
 
     return {
