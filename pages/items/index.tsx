@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import useSearch from "./hooks/useSearch";
 import Template from "components/template/Template";
 import ListElements from "components/UI/molecules/ListElements";
+import SquareLoader from "components/UI/atoms/SquareLoader";
 
 interface QueryInterface {
     search?: string;
@@ -18,11 +19,13 @@ const ListPage = () => {
         router.push(`/items/${id}`);
     }
 
+
     return (
         <Main searchValue={search}>
-            <Template header={(<Breadcrumbs categories={data.categories} />)}>
+            {loading && <SquareLoader />}
+            {!loading && <Template header={(<Breadcrumbs categories={data.categories} />)}>
                 <ListElements onClick={handleClickProduct} products={data.products} />
-            </Template>
+            </Template>}
         </Main>
     );
 }
