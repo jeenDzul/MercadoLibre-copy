@@ -9,7 +9,7 @@ const callEndpoint = async (axiosCall) => {
 const fetchProduct = (id) => ({ call: axios.get(`https://api.mercadolibre.com/items/${id}`) })
 const fetchProductDetail = (id) => ({ call: axios.get(`https://api.mercadolibre.com/items/${id}/description`) })
 
-const parseCategories = (response) => {
+/* const parseCategories = (response) => {
     const [firstFilterElement] = response?.filters ?? []
     const [firtValueElement] = firstFilterElement?.values ?? []
     const { path_from_root: pathFromRoot } = firtValueElement ?? {}
@@ -18,7 +18,7 @@ const parseCategories = (response) => {
     }
     const categories = pathFromRoot.map((path) => path.name) ?? []
     return categories
-}
+} */
 
 const parsePrice = (item) => {
     const priceSeparator = item.price.toString().split('.')
@@ -97,5 +97,5 @@ export default async function productsResult(req, res) {
         productData = { ...productData, description: productDescription }
     }
 
-    res.status(200).json({ ...productData })
+    res.status(200).json({ item: { ...productData } })
 }

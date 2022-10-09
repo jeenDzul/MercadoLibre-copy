@@ -5,6 +5,7 @@ import Breadcrumbs from 'components/UI/molecules/Breadcrumbs';
 import Main from 'components/UI/organisms/Main';
 import ProductInformation from 'components/UI/organisms/ProductInformation';
 import useProductDetail from './hooks/useProductDetail';
+import SquareLoader from 'components/UI/atoms/SquareLoader';
 
 interface QueryInterface {
     productId?: string;
@@ -19,9 +20,10 @@ const ProductDetail = () => {
 
     return (
         <Main>
-            <Template header={(<Breadcrumbs categories={data.categories} />)}>
-                <ProductInformation product={data.product} />
-            </Template>
+            {loading && <SquareLoader />}
+            {!loading && <Template header={(<Breadcrumbs categories={data.categories} />)}>
+                <ProductInformation product={data.product} onClick={(productId) => alert(productId)} />
+            </Template>}
         </Main>
     );
 

@@ -59,6 +59,8 @@
 }
 
 .containerDescription {
+    margin-top: calculateRem(32);
+    margin-bottom: calculateRem(32);
     @media (min-width: $laptop) {
         display: grid;
         grid-template-columns: 1fr 0.5fr;

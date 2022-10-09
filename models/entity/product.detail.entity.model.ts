@@ -1,9 +1,9 @@
-import ProductIProps from "./product.entity.model";
+import ProductEntityProps from "./product.entity.model";
 
-interface ProductDetailIProps extends ProductIProps {
+interface ProductDetailEntityProps extends ProductEntityProps {
     condition?: string;
     soldQuantity?: number;
     description?: string;
 }
 
-export default ProductDetailIProps;
+export default ProductDetailEntityProps;

@@ -26,7 +26,7 @@ const Button = (props: ButtonProps) => {
   return (
     <button
       onClick={() => {
-        if (props.disabled) {
+        if (props?.disabled || !props?.onClick) {
           return;
         }
         return props.onClick();
