@@ -1,24 +1,15 @@
 import axios from 'axios'
+import callEndpoint from '../utilities/call-endpoint'
+import errorsStatusCode from '../utilities/error-codes'
 
-const callEndpoint = async (axiosCall) => {
-    let result = {}
-    result = await axiosCall.call
-    return result
+const fetchProduct = (param) => ({ call: axios.get(`https://api.mercadolibre.com/items/${param}`) })
+const fetchProductDetail = (productId) => ({ call: axios.get(`https://api.mercadolibre.com/items/${productId}/description`) })
+const fetchProductCategories = (categoryId) => ({ call: axios.get(`https://api.mercadolibre.com/categories/${categoryId}`) })
+
+const parseCategories = (response) => {
+    const categories = response?.path_from_root ?? []
+    return categories.map((path) => path.name) ?? []
 }
-
-const fetchProduct = (id) => ({ call: axios.get(`https://api.mercadolibre.com/items/${id}`) })
-const fetchProductDetail = (id) => ({ call: axios.get(`https://api.mercadolibre.com/items/${id}/description`) })
-
-/* const parseCategories = (response) => {
-    const [firstFilterElement] = response?.filters ?? []
-    const [firtValueElement] = firstFilterElement?.values ?? []
-    const { path_from_root: pathFromRoot } = firtValueElement ?? {}
-    if (!pathFromRoot) {
-        return []
-    }
-    const categories = pathFromRoot.map((path) => path.name) ?? []
-    return categories
-} */
 
 const parsePrice = (item) => {
     const priceSeparator = item.price.toString().split('.')
@@ -49,26 +40,6 @@ const parseProduct = (response) => {
     }
 }
 
-function errorsStatusCode(code) {
-    function Api400Error(res) {
-        return res.status(400).json({ message: 'Bad Request' })
-    }
-
-    function Api404Error(res) {
-        return res.status(404).json({ message: 'Service not found' })
-    }
-
-    function Api500Error(res) {
-        return res.status(500).json({ message: 'Server Error' })
-    }
-    const statusCode = {
-        400: Api400Error,
-        404: Api404Error,
-        500: Api500Error,
-    }
-    return statusCode[code]
-}
-
 export default async function productsResult(req, res) {
     const { id: productId } = req.query
 
@@ -76,7 +47,8 @@ export default async function productsResult(req, res) {
         res.status(400).json({ message: 'Missing param' })
     }
 
-    const productResponse = await callEndpoint(fetchProduct(productId)).catch((e) => e.response)
+    const productResponse = await callEndpoint(fetchProduct(productId))
+        .catch((e) => e.response)
     const productDetailResponse = await callEndpoint(fetchProductDetail(productId))
         .catch((e) => e.response)
 
@@ -90,6 +62,13 @@ export default async function productsResult(req, res) {
         errorProductResponse(res)
     }
 
+    const categoriesResponse = await callEndpoint(fetchProductCategories(product?.category_id))
+        .catch((e) => e.response)
+    let categories = []
+    if (categoriesResponse?.data != null) {
+        categories = parseCategories(categoriesResponse.data)
+    }
+
     let productData = { ...parseProduct(product) }
 
     if (!errorProductDetailResponse) {
@@ -97,5 +76,5 @@ export default async function productsResult(req, res) {
         productData = { ...productData, description: productDescription }
     }
 
-    res.status(200).json({ item: { ...productData } })
+    res.status(200).json({ item: productData, categories })
 }

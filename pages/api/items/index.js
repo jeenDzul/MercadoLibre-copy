@@ -1,10 +1,7 @@
 import axios from 'axios'
-
-const callEndpoint = async (axiosCall) => {
-    let result = {}
-    result = await axiosCall.call
-    return result
-}
+import { toNormalForm } from '../utilities/format-string'
+import callEndpoint from '../utilities/call-endpoint'
+import errorsStatusCode from '../utilities/error-codes'
 
 const fetchProducts = (query) => ({ call: axios.get(`https://api.mercadolibre.com/sites/MLA/search?q=${query}&limit=50`) })
 
@@ -54,33 +51,16 @@ const parseProducts = (response) => {
     })
 }
 
-function errorsStatusCode(code) {
-    function Api400Error(res) {
-        return res.status(400).json({ message: 'Bad Request' })
-    }
-
-    function Api404Error(res) {
-        return res.status(404).json({ message: 'Service not found' })
-    }
-
-    function Api500Error(res) {
-        return res.status(500).json({ message: 'Server Error' })
-    }
-    const statusCode = {
-        400: Api400Error,
-        404: Api404Error,
-        500: Api500Error,
-    }
-    return statusCode[code]
-}
-
 export default async function productsResult(req, res) {
     if (!req.query.q) {
         res.status(400).json({ message: 'Missing param' })
         return
     }
 
-    const response = await callEndpoint(fetchProducts(req.query.q)).catch((e) => e.response)
+    // the meli api is breack if a query params have a accent
+    const query = toNormalForm(req.query.q)
+
+    const response = await callEndpoint(fetchProducts(query)).catch((e) => e.response)
 
     const { data, status } = response
     const errorStatus = errorsStatusCode(status)
