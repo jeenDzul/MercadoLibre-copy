@@ -2,9 +2,11 @@ import axios from 'axios'
 import callEndpoint from '../utilities/call-endpoint'
 import errorsStatusCode from '../utilities/error-codes'
 
-const fetchProduct = (param) => ({ call: axios.get(`https://api.mercadolibre.com/items/${param}`) })
-const fetchProductDetail = (productId) => ({ call: axios.get(`https://api.mercadolibre.com/items/${productId}/description`) })
-const fetchProductCategories = (categoryId) => ({ call: axios.get(`https://api.mercadolibre.com/categories/${categoryId}`) })
+const baseUrl = process.env.BASE_URL
+
+const fetchProduct = (param) => ({ call: axios.get(`${baseUrl}/items/${param}`) })
+const fetchProductDetail = (productId) => ({ call: axios.get(`${baseUrl}/items/${productId}/description`) })
+const fetchProductCategories = (categoryId) => ({ call: axios.get(`${baseUrl}/categories/${categoryId}`) })
 
 const parseCategories = (response) => {
     const categories = response?.path_from_root ?? []

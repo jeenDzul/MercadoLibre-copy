@@ -3,7 +3,9 @@ import { toNormalForm } from '../utilities/format-string'
 import callEndpoint from '../utilities/call-endpoint'
 import errorsStatusCode from '../utilities/error-codes'
 
-const fetchProducts = (query) => ({ call: axios.get(`https://api.mercadolibre.com/sites/MLA/search?q=${query}&limit=50`) })
+const baseUrl = process.env.BASE_URL
+
+const fetchProducts = (query) => ({ call: axios.get(`${baseUrl}/search?q=${query}&limit=50`) })
 
 const parseCategories = (response) => {
     const [firstFilterElement] = response?.filters ?? []
@@ -61,7 +63,6 @@ export default async function productsResult(req, res) {
     const query = toNormalForm(req.query.q)
 
     const response = await callEndpoint(fetchProducts(query)).catch((e) => e.response)
-
     const { data, status } = response
     const errorStatus = errorsStatusCode(status)
     if (errorStatus) {
