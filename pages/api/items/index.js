@@ -91,5 +91,5 @@ export default async function productsResult(req, res) {
     const productItems = parseProducts(data)
     const categories = parseCategories(data)
 
-    res.status(200).json({ item: productItems, categories })
+    res.status(200).json({ items: productItems, categories })
 }

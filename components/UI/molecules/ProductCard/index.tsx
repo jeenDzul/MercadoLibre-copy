@@ -1,26 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
+import ProductEntityProps from "models/entity/product.entity.model";
 import React from "react";
 import styles from "./styles.module.scss";
 
 interface ProductCardInterface {
-  title?: string;
-  amount?: string;
-  decimal?: string;
-  currency?: string;
-  picture?: string;
-  cityName?: string;
-  freeShipping?: boolean;
+  product?: ProductEntityProps,
   onClick?: () => void;
 }
 
 const ProductCard = ({
-  title,
-  amount,
-  decimal,
-  currency,
-  picture,
-  cityName,
-  freeShipping,
+  product,
   onClick,
 }: ProductCardInterface) => {
   return (
@@ -29,17 +18,17 @@ const ProductCard = ({
         <img
           className={styles.image}
           alt="product image"
-          title={title}
-          src={picture}
+          title={product.title}
+          src={product.picture}
         />
       </div>
       <div className={styles.container}>
         <div className={styles.priceContainer}>
           <span>$ </span>
-          <span>{`${amount}${decimal ? `.${decimal}` : ''}`}</span>
-          {freeShipping && (
+          <span>{`${product.priceAmount}${product?.priceDecimals != null ? `.${product.priceDecimals}` : ''}`}</span>
+          {product.freeShipping && (
             <span className={styles.iconContainer}>
-              {freeShipping && (
+              {product.freeShipping && (
                 <img
                   alt="shipping"
                   title="shipping"
@@ -54,10 +43,10 @@ const ProductCard = ({
             </span>
           )}
         </div>
-        <h2>{title}</h2>
+        <h2>{product.title}</h2>
       </div>
       <div className={styles.aside}>
-        <span>{cityName}</span>
+        <span>{product.cityName}</span>
       </div>
     </div>
   );

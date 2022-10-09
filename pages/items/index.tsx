@@ -19,7 +19,7 @@ const ListPage = () => {
     }
 
     return (
-        <Main searchvalue={search}>
+        <Main searchValue={search}>
             <Template header={(<Breadcrumbs categories={data.categories} />)}>
                 <ListElements onClick={handleClickProduct} products={data.products} />
             </Template>
