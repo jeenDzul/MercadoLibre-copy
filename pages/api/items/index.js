@@ -5,7 +5,7 @@ import errorsStatusCode from '../utilities/error-codes'
 
 const baseUrl = process.env.BASE_URL
 
-const fetchProducts = (query) => ({ call: axios.get(`${baseUrl}/search?q=${query}&limit=50`) })
+const fetchProducts = (query) => ({ call: axios.get(`${baseUrl}/sites/MLA/search?q=${query}&limit=50`) })
 
 const parseCategories = (response) => {
     const [firstFilterElement] = response?.filters ?? []

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import createProductAdapter, { ProductDetailInterface } from "adapters/fetch.product.detail.adapter";
 import useLoadFetch from "hooks/useLoadFetch";
 import { fetchProductDetail } from "services/public-service";
+import { useAsync } from "hooks/useAsync";
 // import { useSelector } from "react-redux";
 // import { AppStoreInterface } from "redux/store";
 
@@ -12,20 +13,22 @@ const useProductDetail = (productId) => {
 
     const [productDetailEntity, setProductDetailEntity] = useState<ProductDetailInterface>({});
 
-    const fetch = useCallback(async () => {
-        const response = await callEndpoint(fetchProductDetail(productId));
-        const detailEntity = createProductAdapter(response);
+    const getProductDetail = async () => await callEndpoint(fetchProductDetail(productId));
+
+
+
+    const adapterResult = (data: any) => {
+        const detailEntity = createProductAdapter(data);
         console.log(detailEntity);
         setProductDetailEntity({ ...detailEntity, /*categories*/ });
-    }, [productId]);
+    }
 
-
-    useEffect(() => {
+    useAsync(() => {
         if (!productId) {
-            return
+            return;
         }
-        fetch();
-    }, [productId, fetch])
+        return getProductDetail()
+    }, adapterResult, () => { }, [productId]);
 
     return {
         loading,

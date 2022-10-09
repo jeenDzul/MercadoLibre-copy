@@ -5,6 +5,7 @@ import useLoadFetch from 'hooks/useLoadFetch';
 import { createListProduct } from 'redux/states/products';
 import { AppStoreInterface } from 'redux/store';
 import { fetchProducts } from 'services/public-service';
+import { useAsync } from 'hooks/useAsync';
 
 
 const useSearch = (param) => {
@@ -12,18 +13,18 @@ const useSearch = (param) => {
     const productsState = useSelector((store: AppStoreInterface) => store.products);
     const dispatch = useDispatch();
 
-    const fetch = useCallback(async () => {
-        const response = await callEndpoint(fetchProducts(param));
-        dispatch(createListProduct(createProductsAdapter(response)));
-    }, [param, dispatch]);
+    const getProductsByParams = async () => await callEndpoint(fetchProducts(param));
 
+    const adapterResultSearch = (data: any) => {
+        dispatch(createListProduct(createProductsAdapter(data)));
+    }
 
-    useEffect(() => {
+    useAsync(() => {
         if (!param) {
-            return
+            return;
         }
-        fetch();
-    }, [param, fetch])
+        return getProductsByParams()
+    }, adapterResultSearch, () => { }, [param]);
 
     return {
         loading,

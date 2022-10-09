@@ -14,7 +14,7 @@ const parseCategories = (response) => {
 }
 
 const parsePrice = (item) => {
-    const priceSeparator = item.price.toString().split('.')
+    const priceSeparator = item?.price?.toString().split('.') ?? []
     const amount = Number(priceSeparator[0] ?? 0)
     const decimals = priceSeparator[1] ? Number(priceSeparator[1]) : null
     return {
@@ -26,19 +26,19 @@ const parsePrice = (item) => {
 const parseProduct = (response) => {
     const price = parsePrice(response)
     return {
-        id: response.id,
-        title: response.title,
+        id: response?.id,
+        title: response?.title,
         price: {
-            amount: price.amount,
-            decimals: price.decimals,
-            currency: response.currency_id,
+            amount: price?.amount,
+            decimals: price?.decimals,
+            currency: response?.currency_id,
         },
-        picture: response.pictures[0].secure_url,
-        condition: response.condition,
-        free_shiping: response.shipping.free_shipping,
-        sold_quantity: response.sold_quantity,
-        description: response.description ?? '',
-        city_name: response.seller_address.city.name,
+        picture: response?.pictures ? response?.pictures[0]?.secure_url : '',
+        condition: response?.condition,
+        free_shiping: response?.shipping?.free_shipping,
+        sold_quantity: response?.sold_quantity,
+        description: response?.description ?? '',
+        city_name: response?.seller_address?.city.name,
     }
 }
 
