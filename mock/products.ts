@@ -9,7 +9,7 @@ const products: ItemsIProps = {
             decimal: null,
             currency: 'USD',
         },
-        thumbnail: 'https://via.placeholder.com/150',
+        picture: 'https://via.placeholder.com/150',
         city_name: 'México',
         free_shipping: true,
     }, {
@@ -20,7 +20,7 @@ const products: ItemsIProps = {
             decimal: 50,
             currency: 'USD',
         },
-        thumbnail: 'https://via.placeholder.com/150',
+        picture: 'https://via.placeholder.com/150',
         city_name: 'Merida',
         free_shipping: false,
     }, {
@@ -31,7 +31,7 @@ const products: ItemsIProps = {
             decimal: null,
             currency: 'USD',
         },
-        thumbnail: 'https://via.placeholder.com/150',
+        picture: 'https://via.placeholder.com/150',
         city_name: 'Cancún',
         free_shipping: true,
     }],

@@ -6,27 +6,28 @@ import Button from "../../atoms/Button";
 import styles from './styles.module.scss';
 
 interface ProductInformationInterface {
-    product?: ProductDetailEntity
+    product?: ProductDetailEntity,
+    onClick?: (productId?: string) => void,
 }
 
-const ProductInformation = ({ product }: ProductInformationInterface) => {
+const ProductInformation = ({ product, onClick }: ProductInformationInterface) => {
     return (
         <div data-testid="product-detail">
             <div className={styles.containerDescription}>
                 <div className={styles.containerImg}>
-                    <img src={product?.image} />
+                    <img src={product?.picture} />
                 </div>
                 <div>
-                    <span className={styles.labelInformation}>{product?.soldQuantity}</span>
+                    <span className={styles.labelInformation}>{`${product?.condition} - ${product?.soldQuantity} sold`}</span>
                     <h2 className={styles.labelProduct}>{product?.title}</h2>
                     <span className={styles.labelPrice}>
-                        {`$ ${product?.amount}`}
+                        {`$ ${product?.priceAmount}`}
                         <span className={styles.labelPriceMin}>{
-                            product?.decimal ? product?.decimal : '00'
+                            product?.priceDecimals ? product?.priceDecimals : '00'
                         }</span>
                     </span>
                     <div className={styles.containerButton}>
-                        <Button>Comprar</Button>
+                        <Button onClick={() => onClick(product?.id)}>Comprar</Button>
                     </div>
                 </div>
             </div>

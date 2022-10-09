@@ -1,27 +1,20 @@
 import axios from 'axios'
+import callEndpoint from '../utilities/call-endpoint'
+import errorsStatusCode from '../utilities/error-codes'
 
-const callEndpoint = async (axiosCall) => {
-    let result = {}
-    result = await axiosCall.call
-    return result
-}
+const baseUrl = process.env.BASE_URL
 
-const fetchProduct = (id) => ({ call: axios.get(`https://api.mercadolibre.com/items/${id}`) })
-const fetchProductDetail = (id) => ({ call: axios.get(`https://api.mercadolibre.com/items/${id}/description`) })
+const fetchProduct = (param) => ({ call: axios.get(`${baseUrl}/items/${param}`) })
+const fetchProductDetail = (productId) => ({ call: axios.get(`${baseUrl}/items/${productId}/description`) })
+const fetchProductCategories = (categoryId) => ({ call: axios.get(`${baseUrl}/categories/${categoryId}`) })
 
 const parseCategories = (response) => {
-    const [firstFilterElement] = response?.filters ?? []
-    const [firtValueElement] = firstFilterElement?.values ?? []
-    const { path_from_root: pathFromRoot } = firtValueElement ?? {}
-    if (!pathFromRoot) {
-        return []
-    }
-    const categories = pathFromRoot.map((path) => path.name) ?? []
-    return categories
+    const categories = response?.path_from_root ?? []
+    return categories.map((path) => path.name) ?? []
 }
 
 const parsePrice = (item) => {
-    const priceSeparator = item.price.toString().split('.')
+    const priceSeparator = item?.price?.toString().split('.') ?? []
     const amount = Number(priceSeparator[0] ?? 0)
     const decimals = priceSeparator[1] ? Number(priceSeparator[1]) : null
     return {
@@ -33,40 +26,20 @@ const parsePrice = (item) => {
 const parseProduct = (response) => {
     const price = parsePrice(response)
     return {
-        id: response.id,
-        title: response.title,
+        id: response?.id,
+        title: response?.title,
         price: {
-            amount: price.amount,
-            decimals: price.decimals,
-            currency: response.currency_id,
+            amount: price?.amount,
+            decimals: price?.decimals,
+            currency: response?.currency_id,
         },
-        picture: response.pictures[0].secure_url,
-        condition: response.condition,
-        free_shiping: response.shipping.free_shipping,
-        sold_quantity: response.sold_quantity,
-        description: response.description ?? '',
-        city_name: response.seller_address.city.name,
+        picture: response?.pictures ? response?.pictures[0]?.secure_url : '',
+        condition: response?.condition,
+        free_shiping: response?.shipping?.free_shipping,
+        sold_quantity: response?.sold_quantity,
+        description: response?.description ?? '',
+        city_name: response?.seller_address?.city.name,
     }
-}
-
-function errorsStatusCode(code) {
-    function Api400Error(res) {
-        return res.status(400).json({ message: 'Bad Request' })
-    }
-
-    function Api404Error(res) {
-        return res.status(404).json({ message: 'Service not found' })
-    }
-
-    function Api500Error(res) {
-        return res.status(500).json({ message: 'Server Error' })
-    }
-    const statusCode = {
-        400: Api400Error,
-        404: Api404Error,
-        500: Api500Error,
-    }
-    return statusCode[code]
 }
 
 export default async function productsResult(req, res) {
@@ -76,7 +49,8 @@ export default async function productsResult(req, res) {
         res.status(400).json({ message: 'Missing param' })
     }
 
-    const productResponse = await callEndpoint(fetchProduct(productId)).catch((e) => e.response)
+    const productResponse = await callEndpoint(fetchProduct(productId))
+        .catch((e) => e.response)
     const productDetailResponse = await callEndpoint(fetchProductDetail(productId))
         .catch((e) => e.response)
 
@@ -90,6 +64,13 @@ export default async function productsResult(req, res) {
         errorProductResponse(res)
     }
 
+    const categoriesResponse = await callEndpoint(fetchProductCategories(product?.category_id))
+        .catch((e) => e.response)
+    let categories = []
+    if (categoriesResponse?.data != null) {
+        categories = parseCategories(categoriesResponse.data)
+    }
+
     let productData = { ...parseProduct(product) }
 
     if (!errorProductDetailResponse) {
@@ -97,5 +78,5 @@ export default async function productsResult(req, res) {
         productData = { ...productData, description: productDescription }
     }
 
-    res.status(200).json({ ...productData })
+    res.status(200).json({ item: productData, categories })
 }

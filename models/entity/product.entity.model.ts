@@ -1,12 +1,13 @@
-interface ProductIProps {
-    id?: string;
-    title?: string;
-    image?: string;
-    cityName?: string;
-    freeShipping?: boolean;
-    amount?: number;
-    decimal?: number;
-    currency?: string;
+interface ProductEntityProps {
+    cityName?: string,
+    condition?: string,
+    freeShipping?: boolean,
+    id?: string,
+    picture?: string,
+    priceAmount?: number,
+    priceCurrency?: string,
+    priceDecimals?: number,
+    title?: string,
 }
 
-export default ProductIProps;
+export default ProductEntityProps;

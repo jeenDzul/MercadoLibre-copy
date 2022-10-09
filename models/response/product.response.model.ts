@@ -1,8 +1,9 @@
 interface ProductIProps {
     id: string;
     title?: string;
-    thumbnail?: string;
+    picture?: string;
     city_name?: string;
+    condition?: string;
     price?: PriceIProps;
     free_shipping?: boolean;
 }
