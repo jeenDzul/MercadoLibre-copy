@@ -1,0 +1,20 @@
+import ItemIProps from "models/response/item.response.model";
+
+const productEntity = {
+    item: {
+        "cityName": 'Coghlan',
+        "freeShipping": false,
+        "id": "MLA752049500",
+        "picture": "https://http2.mlstatic.com/D_745590-MLA31600084376_072019-O.jpg",
+        "priceAmount": 24999,
+        "priceCurrency": "ARS",
+        "priceDecimals": 0,
+        "title": "Celular Samsung Galaxy J5 Prime Liberado Reacondicionado",
+        "condition": "new",
+        "soldQuantity": 108,
+        "description": "——————————————————————\nSOMOS CAMUS ELECTRÓNICA \nMercadoLíder Platinum\n——————————————————————\n************************************************************\n==================================================\nATENCION ATENCION LEER ANTES DE COMPRAR\n\nEL PRODUCTO AL SER REACONDICIONADO PUEDE TENER GOLPES O MARCAS DE USO QUE NO AFECTAN A SU FUNCIONAMIENTO\n\nSI TIENE DUDAS DE ESTO CONSULTE ANTES DE COMPRAR\n==================================================\n\n¿Qué significa refabricado?\n“Refurbished o Refabricado” es un término que se utiliza para describir como equipos usadoss que han sido restaurados a su estado como nuevo. Cuando un equipo está reformado o restaurado, las partes que no están funcionando correctamente se sustituyen. Este proceso garantinza que el producto funcione al 100% en todas sus funciones. Al ser equipos que quizas fueron usados, pueden llegar a mantener marcas de uso.\n\n¿Qué incluye la compra?\nEl producto se entrega en caja con cargador, cable USB y batería.\n\n¿Qué significa Version Outlet?\nSon equipos que fueron usados en exposicion, puede llegar a tener algun detalle pero funcionan al 100%.\n\n-------------------------------------------------------------------------------------\n\nEl Samsung Galaxy J5 Prime es una variante del Galaxy J5 con una pantalla HD de 5 pulgadas, procesador quad-core a 1.4GHz, 2GB de RAM, 16GB de almacenamiento interno expandible, cámara principal de 13 megapixels con flash LED, cámara frontal de 5 MP, lector de huellas dactilares, chasis metálico y Android 6.0 Marshmallow.\n\nAndroid 6.0.1 es el sistema operativo del Samsung Galaxy J5 Prime , que en cuanto a dimensiones tiene un perfil de 8.1 mm y un peso de 143 g . Entre las características del Samsung Galaxy J5 Prime se destaca una pantalla de 5\" con una resolución de 720 x 1280 pixels. \nDentro del Galaxy J5 Prime de Samsung encontramos un procesador Quad-core 1.4GHz, acompañado de 2GB de memoria RAM. Además, cuenta con 16GB de almacenamiento y la memoria interna puede ser ampliada vía microSD . La cámara trasera es de resolución 13 MP con captura de video , y la energía es provista por una batería de 2400 mAh. El Galaxy J5 Prime también tiene Radio FM.\n\nPantalla 5\", 720 x 1280 pixels\nPantalla y resolución\nProcesador Quad-core 1.4GHz\n2GB RAM\n16GB, microSD\nCámara: 13 MP\nBatería: 2400 mAh\nOS: Android 6.0.1\nPerfil: 8.1 mm\nPeso: 143 g\n\n************************************************************\n——————————————————————\n—> ENTREGAS\n\n\n- ENVÍO POR MENSAJERÍA EN CAPITAL Y GBA\nAl momento de realizar la compra tenés que elegir la opción de entrega “lo retiro en domicilio del vendedor” y luego coordinar la entrega.\n\n- ENVÍOS A TODO EL PAÍS\n\n- ACEPTAMOS MERCADO ENVÍOS\n\n—> FORMAS DE PAGO\n\n\n- MecadoPago Con cualquiera de sus medios (todas las tarjetas de crédito, rapipago, pagofacil, trasferencia)\n\n—> EMITIMOS FACTURA A o B\n\n—> UBICACIÓN Y HORARIOS\nEstamos cerca de Cabildo y Juramento, a pocas cuadras.\nHorarios: Lunes a Viernes 10 a 18hs.\n\n—> GARANTÍA\nTodos nuestros productos se entregan con certificados de garantía escrito.\n\n—> NO ACEPTAMOS CANJES NI TOMAMOS ARTÍCULOS EN FORMA DE PAGO\n——————————————————————\n\nSOMOS CAMUS ELECTRÓNICA"
+    },
+    categories: ['Celulares', 'Apple', 'Iphone'],
+};
+
+export default productEntity;

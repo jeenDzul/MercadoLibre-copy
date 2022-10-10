@@ -1,8 +1,9 @@
 import ListElements from '../components/UI/molecules/ListElements';
 import React from 'react';
 import Main from '../components/UI/organisms/Main';
-import products from '../mock/products';
 import Breadcrumbs from '../components/UI/molecules/Breadcrumbs';
+import productsEntity from '../mock/products-entity';
+
 
 import product from '../mock/product';
 
@@ -17,7 +18,7 @@ export const View = (args) => (
         <Main searchValue="Iphone">
             <div>
                 <Breadcrumbs categories={[...product.categories]} />
-                <ListElements products={products.items} {...args} />
+                <ListElements products={productsEntity.items} {...args} />
             </div>
         </Main>
     </div>

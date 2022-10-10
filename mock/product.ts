@@ -2,18 +2,17 @@ import ItemIProps from "models/response/item.response.model";
 
 const product: ItemIProps = {
     item: {
-        id: 'ASDG',
-        title: 'Iphone 14 pro max',
+        id: "MLA1127183167",
+        title: "Samsung Galaxy S22 Ultra 12gb 256gb Phantom White",
         price: {
-            amount: 200,
-            decimal: null,
-            currency: 'USD',
+            currency: "ARS",
+            amount: 299999,
+            decimal: 0,
         },
-        picture: 'https://via.placeholder.com/150',
-        city_name: 'Cancún',
+        picture: "http://http2.mlstatic.com/D_834464-MLA49303777747_032022-I.jpg",
+        condition: "new",
         free_shipping: true,
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        sold_quantity: 12,
+        city_name: "Villa Celina",
     },
     categories: ['Celulares', 'Apple', 'Iphone'],
 };

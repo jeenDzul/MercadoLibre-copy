@@ -1,6 +1,6 @@
 import React from 'react';
 import ProductCard from '../components/UI/molecules/ProductCard';
-import products from '../mock/products';
+import productEntity from '../mock/product-entity';
 
 export default {
     title: 'Components/Molecules/ProductCard',
@@ -10,7 +10,7 @@ export default {
 
 export const List = (args) => (
     <div >
-        <ProductCard {...{ ...(products.items[0]), ...args }} />
+        <ProductCard {...args} product={productEntity.item} />
     </div>
 );
 

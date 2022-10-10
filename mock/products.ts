@@ -2,41 +2,19 @@ import ItemsIProps from "models/response/items.response.model";
 
 const products: ItemsIProps = {
     items: [{
-        id: 'ASDG',
-        title: 'Iphone 11',
+        id: "MLA1127183167",
+        title: "Samsung Galaxy S22 Ultra 12gb 256gb Phantom White",
         price: {
-            amount: 200,
-            decimal: null,
-            currency: 'USD',
+            currency: "ARS",
+            amount: 299999,
+            decimal: 0,
         },
-        picture: 'https://via.placeholder.com/150',
-        city_name: 'México',
+        picture: "http://http2.mlstatic.com/D_834464-MLA49303777747_032022-I.jpg",
+        condition: "new",
         free_shipping: true,
-    }, {
-        id: '"SDSDF"',
-        title: 'Iphone XR',
-        price: {
-            amount: 500,
-            decimal: 50,
-            currency: 'USD',
-        },
-        picture: 'https://via.placeholder.com/150',
-        city_name: 'Merida',
-        free_shipping: false,
-    }, {
-        id: 'ASDADA',
-        title: 'Iphone 6',
-        price: {
-            amount: 300,
-            decimal: null,
-            currency: 'USD',
-        },
-        picture: 'https://via.placeholder.com/150',
-        city_name: 'Cancún',
-        free_shipping: true,
-    }],
+        city_name: "Villa Celina",
+    },],
     categories: ['Celulares', 'Apple', 'Iphone'],
 }
-
 
 export default products;

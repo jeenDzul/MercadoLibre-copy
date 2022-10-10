@@ -1,6 +1,6 @@
 import React from 'react';
 import ListElements from '../components/UI/molecules/ListElements';
-import products from '../mock/products';
+import productsEntity from '../mock/products-entity';
 
 export default {
     title: 'Components/Molecules/ListElements',
@@ -9,7 +9,7 @@ export default {
 };
 export const List = (args) => (
     <div >
-        <ListElements products={products.items} {...args} />
+        <ListElements products={productsEntity.items} {...args} />
     </div>
 );
 
