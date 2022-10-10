@@ -1,34 +1,38 @@
-import { useRouter } from 'next/router';
 import React from 'react';
 import Template from "components/template/Template";
 import Breadcrumbs from 'components/UI/molecules/Breadcrumbs';
 import Main from 'components/UI/organisms/Main';
 import ProductInformation from 'components/UI/organisms/ProductInformation';
-import useProductDetail from './hooks/useProductDetail';
-import SquareLoader from 'components/UI/atoms/SquareLoader';
+import { fetchProductDetail } from 'services/public-service';
+import createProductAdapter from 'adapters/fetch.product.detail.adapter';
+import Error from 'next/error';
 
-interface QueryInterface {
-    productId?: string;
-}
+const ProductDetail = ({ data, errorCode }) => {
+    console.log(errorCode)
 
-
-
-const ProductDetail = () => {
-    const router = useRouter();
-    const { productId }: QueryInterface = router.query;
-    const { loading, data } = useProductDetail(productId);
-
+    if (errorCode) {
+        return <Error statusCode={errorCode} />
+    }
     return (
         <Main>
-            {loading && <SquareLoader />}
-            {!loading && <Template header={(<Breadcrumbs categories={data.categories} />)}>
+            <Template header={(<Breadcrumbs categories={data.categories} />)}>
                 <ProductInformation product={data.product} onClick={(productId) => alert(productId)} />
-            </Template>}
+            </Template>
         </Main>
     );
-
 };
 
-
+export async function getServerSideProps(context) {
+    const data = await fetchProductDetail(context.query.productId).call.catch((e) => e.response);
+    let productDetail;
+    if (data) {
+        productDetail = createProductAdapter(data);
+    }
+    return {
+        props: {
+            data: productDetail || null, errorCode: data.status === 200 ? false : data.status,
+        },
+    }
+}
 
 export default ProductDetail;

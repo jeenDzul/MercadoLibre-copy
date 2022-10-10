@@ -12,9 +12,7 @@ describe('SearchBar Component', () => {
         const { getByTestId } = render(<SearchBar value={mockProps.value} />);
         const textInput = getByTestId('input-search');
         expect((textInput as HTMLInputElement).value).toBe(mockProps.value);
-
     });
-
 
     it('should submit data input when press enter', () => {
         const mockClick = jest.fn()
@@ -28,20 +26,15 @@ describe('SearchBar Component', () => {
         expect(mockClick).toHaveBeenCalledTimes(1);
     });
 
-
-
     it('should send word when select icon search', () => {
         const mockClick = jest.fn()
         const mockProps = {
             value: 'Ropa',
             onSubmit: mockClick,
-
         }
         const component = render(<SearchBar value={mockProps.value} onSubmit={mockProps.onSubmit} />);
         const handleButton = component.getByTestId('handle-search');
         fireEvent.click(handleButton);
         expect(mockClick).toHaveBeenCalledTimes(1);
     });
-
-
 })

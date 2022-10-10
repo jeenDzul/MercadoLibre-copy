@@ -3,5 +3,4 @@ const callEndpoint = async (axiosCall) => {
     result = await axiosCall.call
     return result
 }
-
 export default callEndpoint;

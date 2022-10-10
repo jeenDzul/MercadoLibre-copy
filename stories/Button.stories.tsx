@@ -1,7 +1,6 @@
 import React from 'react';
 import Button from '../components/UI/atoms/Button';
 
-
 export default {
   title: 'Components/Atoms/Button',
   component: Button,
@@ -16,8 +15,6 @@ export const Primary = (args) => (
     </Button>
   </div>
 );
-
-
 
 export const Secondary = (args) => (
   <div style={{ width: '20%' }}>

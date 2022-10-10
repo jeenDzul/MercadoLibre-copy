@@ -11,5 +11,4 @@ export default configureStore<AppStoreInterface>({
     reducer: {
         products: productsSlice.reducer,
     }
-
 });

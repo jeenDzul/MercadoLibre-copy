@@ -5,15 +5,12 @@ import product from "../../../../mock/product";
 import createProductAdapter from '../../../../adapters/fetch.product.detail.adapter';
 import { AxiosResponse } from 'axios';
 
-
-
 describe('Product view information', () => {
     it('should render a view product detail', () => {
         const { getByTestId } = render(<ProductInformation />);
         const card = getByTestId('product-detail');
         expect(card).toBeDefined();
     });
-
 
     it('should render a product detail view', () => {
         const data = createProductAdapter({ data: product } as AxiosResponse);

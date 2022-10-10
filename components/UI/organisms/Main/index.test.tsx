@@ -4,7 +4,6 @@ import '@testing-library/jest-dom'
 import Main from './';
 
 describe('Main page to search', () => {
-
     const useRouter = jest.spyOn(require('next/router'), 'useRouter');
     const mockPush = jest.fn();
     useRouter.mockImplementation(() => ({

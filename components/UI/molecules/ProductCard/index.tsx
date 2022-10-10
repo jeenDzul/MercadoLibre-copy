@@ -2,7 +2,6 @@
 import ProductEntityProps from "models/entity/product.entity.model";
 import React from "react";
 import styles from "./styles.module.scss";
-
 interface ProductCardInterface {
   product?: ProductEntityProps,
   onClick?: () => void;

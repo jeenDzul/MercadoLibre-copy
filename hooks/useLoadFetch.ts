@@ -5,7 +5,6 @@ import { AxiosCall } from 'models/axios-call.model';
 const useLoadFetch = () => {
     const [loading, setLoading] = useState(false);
     let controller: AbortController;
-
     const callEndpoint = async (axiosCall: AxiosCall<any>) => {
         if (axiosCall.controller) controller = axiosCall.controller;
         setLoading(true);
@@ -19,22 +18,15 @@ const useLoadFetch = () => {
         setLoading(false);
         return result;
     };
-
     useEffect(() => {
         const cancelEndpoint = () => {
             setLoading(false);
             controller && controller.abort();
         };
-
         return () => {
             cancelEndpoint();
         };
     }, [controller]);
-
     return { loading, callEndpoint };
 };
-
-
-
-
 export default useLoadFetch;

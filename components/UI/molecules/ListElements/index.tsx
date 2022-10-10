@@ -7,7 +7,6 @@ interface ListElementsInterface {
     products?: ProductEntityProps[],
     onClick?: (id?: string) => void,
 }
-
 const ListElements = ({ products = [], onClick }: ListElementsInterface) => {
     return (<div className={styles.listResults}>{products.map((product) => (
         <ProductCard key={product.id}
@@ -15,8 +14,6 @@ const ListElements = ({ products = [], onClick }: ListElementsInterface) => {
             product={product}
         />
     ))}</div>);
-
-
 }
 
 export default ListElements;
