@@ -21,17 +21,23 @@ yarn run test
 yarn storybook
 ```
 
+## Node version
+
+```bash
+v16.14.0
+```
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Routes
 
-## Ruta para buscar productos desde la vista
+## Route to search products in view
 
 ```bash
 http://localhost:3000/items?q=:query
 ```
 
-## Ruta para ver el detalle del product
+## Route to see product detail
 
 ```bash
 http://localhost:3000/items/id
@@ -39,13 +45,13 @@ http://localhost:3000/items/id
 
 ## API routes
 
-## API route para obtener el listado de productos por parametro
+## API route to get find a list products
 
 ```bash
 http://localhost:3000/api/items?search=:query
 ```
 
-## API route para obtener el detalle del producto
+## API route to get product detail
 
 ```bash
 http://localhost:3000/api/items/:id
@@ -55,7 +61,7 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 ## Learn More
 
-## Tecnologías que se emplearon
+## Technology used
 
 &nbsp;
 ||
@@ -70,7 +76,7 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 | Axios |
 | TypeScript |
 
-## Patrones usados - React
+## Used patterns - React
 
 &nbsp;
 ||
@@ -78,7 +84,7 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 | Custom hooks |
 | Render props |
 
-# Metodologias
+# Methodologies
 
 |                             |
 | --------------------------- |
