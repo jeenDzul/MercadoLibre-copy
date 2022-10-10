@@ -6,13 +6,9 @@ import Main from 'components/UI/organisms/Main';
 import ProductInformation from 'components/UI/organisms/ProductInformation';
 import useProductDetail from './hooks/useProductDetail';
 import SquareLoader from 'components/UI/atoms/SquareLoader';
-
 interface QueryInterface {
     productId?: string;
 }
-
-
-
 const ProductDetail = () => {
     const router = useRouter();
     const { productId }: QueryInterface = router.query;
@@ -26,7 +22,6 @@ const ProductDetail = () => {
             </Template>}
         </Main>
     );
-
 };
 
 
