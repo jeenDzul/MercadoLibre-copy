@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchBar from '../components/UI/organisms/_searchBar';
+import SearchBar from '../components/UI/organisms/SearchBar';
 
 export default {
     title: 'Components/Organisms/SearchBar',
