@@ -12,8 +12,7 @@ const useProductDetail = (productId) => {
 
     const adapterResult = (data: any) => {
         const detailEntity = createProductAdapter(data);
-        console.log(detailEntity);
-        setProductDetailEntity({ ...detailEntity, /*categories*/ });
+        setProductDetailEntity({ ...detailEntity });
     }
     useAsync(() => {
         if (!productId) {

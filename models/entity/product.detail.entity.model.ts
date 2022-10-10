@@ -5,5 +5,4 @@ interface ProductDetailEntityProps extends ProductEntityProps {
     soldQuantity?: number;
     description?: string;
 }
-
 export default ProductDetailEntityProps;

@@ -9,7 +9,6 @@
     font-size: calculateRem(18);
     padding-left: calculateRem(10);
 }
-
 .header {
     display: flex;
     justify-content: center;
@@ -18,12 +17,10 @@
     height: calculateRem(60);
     width: 100%;
 }
-
 .containerInput {
     display: flex;
     width: 90%;
 }
-
 .containerIcon {
     background-color: $color-background;
     display: flex;
@@ -31,7 +28,6 @@
     align-items: center;
     width: calculateRem(50);
 }
-
 .containerLogo {
     display: flex;
     align-items: center;

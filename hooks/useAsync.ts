@@ -7,9 +7,6 @@ export const useAsync = (
     returnFunction?: Function,
     dependencies: any[] = [],
 ) => {
-
-
-
     useEffect(() => {
         let isActive = true;
         asyncFn()?.then((result) => {

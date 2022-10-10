@@ -11,7 +11,7 @@ const Home = () => {
   const { search }: QueryInterface = router.query;
 
   return (
-    <Main searchvalue={search} />
+    <Main searchValue={search} />
   );
 
 }

@@ -1,10 +1,7 @@
 import React from 'react';
 import styles from './styles.module.scss';
 
-
-
 type Color = 'default' | 'primary' | 'secondary';
-
 type ButtonProps = {
   color?: Color,
   disabled?: boolean,
@@ -13,9 +10,7 @@ type ButtonProps = {
   onClick?: () => void,
 }
 
-
 const Button = (props: ButtonProps) => {
-
   const color = {
     'primary': styles.btnPrimary,
     'secondary': styles.btnSecondary,
@@ -36,7 +31,5 @@ const Button = (props: ButtonProps) => {
     </button>
   );
 }
-
-
 
 export default Button;

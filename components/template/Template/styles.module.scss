@@ -2,7 +2,6 @@
 @import '../../../styles/_mix.scss';
 @import '../../../styles/_device_breackpoints.scss';
 
-
 .group {
     height: 100%;
     background-color: white;
@@ -10,12 +9,10 @@
     padding: calculateRem(32);
 }
 
-
 .container {
     max-width: $laptop;
     margin: 0 auto;
 }
-
 
 .containerHeader {
     margin-top: calculateRem(16);

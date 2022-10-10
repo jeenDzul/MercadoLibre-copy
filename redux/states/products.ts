@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { ProductsInterface } from "../../adapters";
 
-
-
 const ProductsEmptyState: ProductsInterface = {
     products: [],
     categories: []

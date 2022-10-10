@@ -3,11 +3,10 @@ import { toNormalForm } from '../utilities/format-string'
 import callEndpoint from '../utilities/call-endpoint'
 import errorsStatusCode from '../utilities/error-codes'
 
-const baseUrl = process.env.BASE_URL
-const site = process.env.BASE_URL
+const baseUrl = process.env.BASE_URL_API
+const site = process.env.SITE
 
 const fetchProducts = (query) => ({ call: axios.get(`${baseUrl}/sites/${site}/search?q=${query}&limit=50`) })
-
 const parseCategories = (response) => {
     const [firstFilterElement] = response?.filters ?? []
     const [firtValueElement] = firstFilterElement?.values ?? []
@@ -31,7 +30,6 @@ const parsePrice = (item) => {
 
 const parseProducts = (response) => {
     const { results = [] } = response
-
     if (results.length <= 0) {
         return results
     }
@@ -59,17 +57,13 @@ export default async function productsResult(req, res) {
         res.status(400).json({ message: 'Missing param' })
         return
     }
-
-    // the meli api is breack if a query params have a accent
     const query = toNormalForm(req.query.q)
-
     const response = await callEndpoint(fetchProducts(query)).catch((e) => e.response)
     const { data, status } = response
     const errorStatus = errorsStatusCode(status)
     if (errorStatus) {
         errorStatus(res)
     }
-
     const productItems = parseProducts(data)
     const categories = parseCategories(data)
 

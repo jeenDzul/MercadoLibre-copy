@@ -9,5 +9,4 @@ interface ProductEntityProps {
     priceDecimals?: number,
     title?: string,
 }
-
 export default ProductEntityProps;

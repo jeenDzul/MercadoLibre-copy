@@ -5,11 +5,9 @@ import useSearch from "./hooks/useSearch";
 import Template from "components/template/Template";
 import ListElements from "components/UI/molecules/ListElements";
 import SquareLoader from "components/UI/atoms/SquareLoader";
-
 interface QueryInterface {
     search?: string;
 }
-
 const ListPage = () => {
     const router = useRouter();
     const { search }: QueryInterface = router.query;
@@ -18,7 +16,6 @@ const ListPage = () => {
     const handleClickProduct = (id) => {
         router.push(`/items/${id}`);
     }
-
 
     return (
         <Main searchValue={search}>
@@ -29,6 +26,4 @@ const ListPage = () => {
         </Main>
     );
 }
-
-
 export default ListPage;

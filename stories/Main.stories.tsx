@@ -6,7 +6,6 @@ import Breadcrumbs from '../components/UI/molecules/Breadcrumbs';
 
 import product from '../mock/product';
 
-
 export default {
     title: 'Components/Organisms/MainView',
     component: Main,

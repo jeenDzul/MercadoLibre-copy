@@ -23,7 +23,7 @@ const ProductInformation = ({ product, onClick }: ProductInformationInterface) =
                     <span className={styles.labelPrice}>
                         {`$ ${product?.priceAmount}`}
                         <span className={styles.labelPriceMin}>{
-                            product?.priceDecimals ? product?.priceDecimals : '00'
+                            product?.priceDecimals != null ? product?.priceDecimals : '00'
                         }</span>
                     </span>
                     <div className={styles.containerButton}>

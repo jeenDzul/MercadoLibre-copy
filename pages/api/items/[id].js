@@ -2,7 +2,7 @@ import axios from 'axios'
 import callEndpoint from '../utilities/call-endpoint'
 import errorsStatusCode from '../utilities/error-codes'
 
-const baseUrl = process.env.BASE_URL
+const baseUrl = process.env.BASE_URL_API
 
 const fetchProduct = (param) => ({ call: axios.get(`${baseUrl}/items/${param}`) })
 const fetchProductDetail = (productId) => ({ call: axios.get(`${baseUrl}/items/${productId}/description`) })

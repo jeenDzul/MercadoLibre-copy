@@ -8,7 +8,6 @@ interface SearchBarInterface {
     onSubmit?: (value?: string) => void;
     onChange?: (value?: string) => void;
 }
-
 const SearchBar = ({ value, onSubmit, onChange }: SearchBarInterface) => {
     return (
         <div className={styles.header}>
@@ -48,14 +47,11 @@ const SearchBar = ({ value, onSubmit, onChange }: SearchBarInterface) => {
                         alt="search product"
                         title="search product"
                         src="/assets/ic_Search@2x.png"
-                        srcSet="
-                        /assets/ic_Search.png 500w
-                    "
+                        srcSet="/assets/ic_Search.png 500w"
                     />
                 </div>
             </div>
         </div>);
-
 }
 
 export default SearchBar;
