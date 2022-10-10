@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
-import SearchBar from '../searchBar';
+import SearchBar from '../SearchBar';
 
 interface HomeInterface {
     searchValue?: string;
